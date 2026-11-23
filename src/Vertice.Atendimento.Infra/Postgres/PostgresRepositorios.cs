@@ -59,7 +59,7 @@ public sealed class AgendamentoRepositorioPostgres(NpgsqlDataSource dados) : IAg
             Status == "CANCELADO" ? StatusAgendamento.Cancelado : StatusAgendamento.Confirmado, LembreteEnviado);
     }
 
-    private const string Colunas = "agendamento_id, negocio_id, numero, servico_id, inicio, fim, status, lembrete_enviado";
+    private const string Colunas = "agendamento_id AS AgendamentoId, negocio_id AS NegocioId, numero AS Numero, servico_id AS ServicoId, inicio AS Inicio, fim AS Fim, status AS Status, lembrete_enviado AS LembreteEnviado";
 
     public async Task<IReadOnlyList<Agendamento>> ListarConfirmadosAsync(string negocioId, DateTimeOffset de, DateTimeOffset ate, CancellationToken cancellationToken)
     {

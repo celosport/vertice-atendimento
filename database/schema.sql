@@ -29,7 +29,8 @@ CREATE TABLE IF NOT EXISTS agendamentos (
 DO $$ BEGIN
     ALTER TABLE agendamentos ADD CONSTRAINT ex_agendamentos_sem_conflito
         EXCLUDE USING gist (negocio_id WITH =, tstzrange(inicio, fim) WITH &&) WHERE (status = 'CONFIRMADO');
-EXCEPTION WHEN duplicate_object THEN NULL; END $$;
+-- duplicate_table: criar a restrição de exclusão cria um índice de mesmo nome, e é esse erro (42P07) que o Postgres devolve na repetição
+EXCEPTION WHEN duplicate_object OR duplicate_table THEN NULL; END $$;
 
 CREATE INDEX IF NOT EXISTS ix_agendamentos_cliente ON agendamentos (negocio_id, numero, inicio);
 CREATE INDEX IF NOT EXISTS ix_agendamentos_lembrete ON agendamentos (inicio) WHERE status = 'CONFIRMADO' AND NOT lembrete_enviado;
