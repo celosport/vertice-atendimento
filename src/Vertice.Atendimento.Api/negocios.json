@@ -1,0 +1,28 @@
+[
+  {
+    "id": "salao-exemplo",
+    "nome": "Salão Exemplo",
+    "fuso": "America/Sao_Paulo",
+    "whatsAppPhoneNumberId": null,
+    "numeroDoResponsavel": null,
+    "servicos": [
+      { "id": "corte", "nome": "Corte", "duracaoMin": 30, "preco": 50.0 },
+      { "id": "escova", "nome": "Escova", "duracaoMin": 45, "preco": 60.0 },
+      { "id": "coloracao", "nome": "Coloração", "duracaoMin": 90, "preco": 180.0 }
+    ],
+    "horarios": [
+      { "dia": "Monday", "abre": "09:00:00", "fecha": "18:00:00" },
+      { "dia": "Tuesday", "abre": "09:00:00", "fecha": "18:00:00" },
+      { "dia": "Wednesday", "abre": "09:00:00", "fecha": "18:00:00" },
+      { "dia": "Thursday", "abre": "09:00:00", "fecha": "18:00:00" },
+      { "dia": "Friday", "abre": "09:00:00", "fecha": "18:00:00" },
+      { "dia": "Saturday", "abre": "09:00:00", "fecha": "13:00:00" }
+    ],
+    "faq": [
+      { "palavras": ["endereco", "onde fica", "localizacao", "como chegar"], "resposta": "Ficamos na Rua Exemplo, 123, Centro. Tem estacionamento na porta." },
+      { "palavras": ["pagamento", "pix", "cartao", "dinheiro"], "resposta": "Aceitamos Pix, cartão de crédito e débito e dinheiro." },
+      { "palavras": ["horario de funcionamento", "funcionamento", "abre", "fecha", "aberto"], "resposta": "Atendemos de segunda a sexta, das 9h às 18h, e aos sábados das 9h às 13h. Para marcar, responda *agendar*." },
+      { "palavras": ["preco", "valor", "quanto custa", "quanto e"], "resposta": "Corte R$ 50,00, escova R$ 60,00 e coloração R$ 180,00. Para marcar, responda *agendar*." }
+    ]
+  }
+]

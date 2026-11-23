@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Vertice.Atendimento.Api/Vertice.Atendimento.Api.csproj" />
+    <Project Path="src/Vertice.Atendimento.Core/Vertice.Atendimento.Core.csproj" />
+    <Project Path="src/Vertice.Atendimento.Infra/Vertice.Atendimento.Infra.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Vertice.Atendimento.Tests/Vertice.Atendimento.Tests.csproj" />
+  </Folder>
+</Solution>
