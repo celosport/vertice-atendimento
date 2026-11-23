@@ -15,7 +15,14 @@ Abra a URL que o comando mostrar. Aparece um celular de mentira: escreva **oi** 
 É também a melhor forma de **demonstrar para um cliente** antes de ligar o número dele.
 
 ```bash
-dotnet test        # 51 testes (cálculo de horários, conversa, webhook, lembretes, API)
+dotnet test        # 51 testes (cálculo de horários, conversa, webhook, lembretes, API) + 8 de banco, pulados sem banco
+```
+
+Os 8 testes de banco (`PostgresTests`) rodam contra um PostgreSQL de verdade quando a variável `VERTICE_TESTES_BANCO` existe
+(usuário com permissão de criar banco). Cada execução cria um banco `vertice_t_*` próprio e o apaga no fim:
+
+```bash
+VERTICE_TESTES_BANCO="Host=localhost;Username=postgres;Password=...;Database=postgres" dotnet test
 ```
 
 ## Como funciona
@@ -67,8 +74,8 @@ Com `Provedor = Meta` o simulador deixa de existir (as rotas `/simulador` não s
 
 ## O que ainda não está pronto
 
-- **Os repositórios PostgreSQL ainda não foram testados contra um banco real** (não havia banco na máquina onde foram escritos). O código compila e o
-  schema é idempotente, mas rode um teste de integração com Postgres antes do primeiro cliente.
+- **Os testes de banco já existem, mas ainda não foram executados:** não havia banco na máquina onde foram escritos. Rode-os (comando acima) antes do
+  primeiro cliente; eles cobrem o schema, a recusa de horário ocupado pelo banco, a disputa simultânea e o fuso.
 - **Mensagem de lembrete real:** depende do modelo aprovado pela Meta (passo 5). No simulador ela aparece como texto.
 - **Uma agenda por negócio.** Vários profissionais, com agenda própria cada um, é a evolução natural.
 - **Sem IA ainda.** Frases livres fora do roteiro caem no "não entendi" ou nas perguntas frequentes. Uma camada com a Claude para entender
